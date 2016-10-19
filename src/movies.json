@@ -1,0 +1,26 @@
+[
+	{
+		"id": 1,
+		"name": "The Hateful Eight",
+		"director": "Quentin Tarantino",
+		"released": "December 25, 2015"
+	},
+	{
+		"id": 2,
+		"name": "Reservoir Dogs",
+		"director": "Quentin Tarantino",
+		"released": "October 23, 1992"
+	},
+	{
+		"id": 3,
+		"name": "God Bless America",
+		"director": "Bobcat Goldthwait",
+		"released": "May 11, 2012"
+	},
+	{
+		"id": 4,
+		"name": "Annie Hall",
+		"director": "Woody Allen",
+		"released": "April 20, 1977"
+	}
+]
