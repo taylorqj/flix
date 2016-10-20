@@ -21,9 +21,12 @@ class App extends Component {
 						<Link to="/movies">Movies</Link>
 					</div>
 
-				<Match exactly pattern="/" component={Home} />
-				<Match exactly pattern="/movies" component={Movies} />
-				<Match exactly pattern="/movies/:movieId" component={Movie} />
+
+					<div className="container">
+						<Match exactly pattern="/" component={Home} />
+						<Match exactly pattern="/movies" component={Movies} />
+						<Match pattern="/movies/:movieId" component={Movie} />
+					</div>
 
 				</div>
 			</Router>

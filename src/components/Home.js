@@ -4,16 +4,21 @@ import FeaturedMovie from './FeaturedMovie';
 
 export const Home = () => (
 	<div>
-		<h2>
+		<h2 className="featured-movies__header">
 			Featured Movies
 		</h2>
 
-		{movies.map((movie, i) => (
-			<FeaturedMovie
-				movie={movie}
-				key={i}
-			/>
-		))}
+		<hr />
+
+		<div className="featured-movies">
+			{movies.map((movie, i) => (
+				<FeaturedMovie
+					movie={movie}
+					key={i}
+				/>
+			))}
+		</div>
+
 	</div>
 );
 

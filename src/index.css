@@ -2,4 +2,71 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: #212121;
+}
+
+.App-header {
+  background: #F44336;
+}
+
+.App-header a {
+  color: #fff;
+  font-size: 20px;
+  text-decoration: none;
+  padding-right: 30px;
+}
+
+.App-header h2 {
+  font-size: 32px;
+}
+
+.App-header a:hover {
+  color: #e0e0e0;
+}
+
+.App-header a:last-child {
+  padding-right: 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.featured-movies {
+  display: flex;
+  justify-content: space-between;
+}
+
+.featured-movie {
+  text-align: left;
+  width: 24%;
+}
+
+.featured-movies__header {
+  margin-bottom: 15px;
+  margin-top: 60px;
+}
+
+.featured-movie__image img {
+  width: 100%;
+  max-height: 343px;
+  min-height: 343px;
+}
+
+.featured-movie p {
+  margin: 0;
+  cursor: default;
+  padding-bottom: 3px;
+}
+
+.featured-movie p:first-child {
+  padding-top: 15px;
+}
+
+hr {
+  margin-bottom: 15px;
+  background-color: #e0e0e0;
+  height: 1px;
+  border: 0;
 }
