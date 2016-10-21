@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react';
+import Link from 'react-router/Link';
 
 export const FeaturedMovie = ({ movie }) => (
 	<div className="featured-movie">
 		<div className="featured-movie__image">
-			<img src={movie.image} />
+			<Link to={`/movies/${movie.id}`}>
+				<img alt={movie.name} src={movie.image} />
+			</Link>
 		</div>
 
 		<div className="featured-movie__info">
@@ -15,7 +18,7 @@ export const FeaturedMovie = ({ movie }) => (
 );
 
 FeaturedMovie.propTypes = {
-	movie: PropTypes.string.isRequired,
+	movie: PropTypes.object.isRequired,
 };
 
 export default FeaturedMovie;
