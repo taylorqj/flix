@@ -70,3 +70,47 @@ hr {
   height: 1px;
   border: 0;
 }
+
+.movie-title {
+	padding-top: 30px;
+}
+
+.movie-image {
+	order: 1;
+	padding-right: 20px;
+}
+
+.movie-information {
+	order: 1;
+	text-align: left;
+	width: 100%;
+}
+
+.movie-information, .movie-reviews {
+	background: #f7f7f7;
+	box-shadow: 0px 5px 10px 0px #e8e6e6;
+	padding: 20px;
+}
+
+.movie-title h2, .movie-reviews h2 {
+	font-size: 32px;
+	margin: 0;
+}
+
+.movie-title hr {
+	margin-bottom: 30px;
+}
+
+.movie-container {
+	display: flex;
+}
+
+.movie-reviews {
+	text-align: left;
+	margin-top: 20px;
+}
+
+.review-author {
+	font-size: 12px;
+}
+
