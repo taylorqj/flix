@@ -22,6 +22,7 @@ export const Movie = ({ params: { movieId } }) => {
                 <div className="movie-information">
                     <p><b>Director:</b> { movie.director }</p>
                     <p><b>Release Date:</b> { movie.released }</p>
+                    <p><b>Description:</b> { movie.description } </p>
                 </div>
 
             </div>
