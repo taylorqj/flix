@@ -1,20 +1,19 @@
 import React from 'react';
 import './App.css';
-import { connect } from 'react-redux';
 
 import Home from './components/Home';
 import Movie from './components/Movie';
 import Movies from './components/Movies';
+import Login from './components/Login';
 import PageNotFound from './components/PageNotFound';
 
 import Router from 'react-router/BrowserRouter';
 import Match from 'react-router/Match';
 import Link from 'react-router/Link';
 import Miss from 'react-router/Miss';
+import MatchWhenAuthorized from './utils/auth';
 
-export const App = ({
-    isAuthenticated,
-}) => {
+export const App = () => {
     return (
         <Router>
             <div className="App">
@@ -27,8 +26,10 @@ export const App = ({
 
                 <div className="container">
                     <Match exactly pattern="/" component={Home} />
-                    <Match exactly pattern="/movies" component={Movies} />
-                    <Match pattern="/movies/:movieId" component={Movie} />
+                    <Match pattern="/login" component={Login} />
+
+                    <MatchWhenAuthorized pattern="/movies" component={Movies} />
+                    <MatchWhenAuthorized pattern="/movies/:movieId" component={Movie} />
 
                     <Miss component={PageNotFound} />
                 </div>
@@ -37,8 +38,4 @@ export const App = ({
     );
 };
 
-export const mapStateToProps = ({ auth: { isAuthenticated } }) => ({
-    isAuthenticated,
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
