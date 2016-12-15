@@ -80,7 +80,9 @@ export class Login extends Component {
 }
 
 export function mapStateToProps({ auth: { isAuthenticated } }) {
-    return { isAuthenticated };
+    return {
+        isAuthenticated,
+    };
 }
 
 export function mapDispatchToProps(dispatch) {
