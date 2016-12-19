@@ -1,6 +1,10 @@
 export const initialState = {
     isAuthenticating: false,
     isAuthenticated: false,
+    user: {
+        firstName: null,
+        lastName: null,
+    },
 };
 
 export default function authReducer(state = initialState, action) {
@@ -14,8 +18,15 @@ export default function authReducer(state = initialState, action) {
         }
 
         case 'AUTH_REQUEST_SUCCESS': {
+            const { payload } = action;
+
             return {
                 ...state,
+                user: {
+                    ...state.user,
+                    firstName: payload.user.firstName,
+                    lastName: payload.user.lastName,
+                },
                 isAuthenticating: false,
                 isAuthenticated: true,
             };
