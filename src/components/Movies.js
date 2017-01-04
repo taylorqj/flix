@@ -1,27 +1,27 @@
 import React from 'react';
-import movies from '../movies.json';
 import Link from 'react-router/Link';
+import movies from '../movies.json';
 
-export const Movies = () => (
-    <div>
-        <h2 className="movies-header">
+const Movies = () => (
+  <div>
+    <h2 className="movies-header">
             Movies
         </h2>
 
-        <hr />
+    <hr />
 
-        <div className="movie-listings">
-            {movies.map((movie, i) => (
-                <div key={i}>
-                    <div className="movie-image">
-                        <Link to={`/movies/${movie.id}`}>
-                            <img alt={movie.name} src={movie.image} />
-                        </Link>
-                    </div>
-                </div>
-            ))}
+    <div className="movie-listings">
+      {movies.map((movie, i) => (
+        <div key={i}>
+          <div className="movie-image">
+            <Link to={`/movies/${movie.id}`}>
+              <img alt={movie.name} src={movie.image} />
+            </Link>
+          </div>
         </div>
+        ))}
     </div>
+  </div>
 );
 
 export default Movies;

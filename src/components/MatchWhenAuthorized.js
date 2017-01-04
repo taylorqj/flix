@@ -4,30 +4,32 @@ import Redirect from 'react-router/Redirect';
 
 import { connect } from 'react-redux';
 
-export const MatchWhenAuthorized = ({
+const MatchWhenAuthorized = ({
     component: Component,
     isAuthenticated,
-    ...rest,
+    ...rest
 }) => (
-    <Match
-        { ...rest }
-        render={props => (
+  <Match
+    {...rest}
+    render={props => (
             isAuthenticated ? (
-                <Component { ...props } />
+              <Component {...props} />
             ) : (
-                <Redirect
-                    to={{
-                        pathname: '/login',
-                        state: { from: props.location }
-                    }}
-                />
+              <Redirect
+                to={{
+                  pathname: '/login',
+                  state: { from: props.location },
+                }}
+              />
             )
         )}
-    />
+  />
 );
 
 MatchWhenAuthorized.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  component: PropTypes.element.isRequired,
+  location: PropTypes.string,
 };
 
 export const mapStateToProps = ({
@@ -35,7 +37,7 @@ export const mapStateToProps = ({
         isAuthenticated,
     },
 }) => ({
-    isAuthenticated,
+  isAuthenticated,
 });
 
 export default connect(

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export const PageNotFound = () => (
-    <div className="page-not-found">
-        We're sorry this page doesn't exist!
+const PageNotFound = () => (
+  <div className="page-not-found">
+        Were sorry this page doesnt exist!
     </div>
 );
 

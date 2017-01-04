@@ -1,27 +1,28 @@
+/* eslint-disable no-console */
 import { createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
 
-export const logger = store => next => action => {
-    console.group(action.type);
-    console.info('dispatching', action);
+export const logger = store => next => (action) => {
+  console.group(action.type);
+  console.info('dispatching', action);
 
-    let result = next(action);
+  const result = next(action);
 
-    console.log('next state', store.getState());
-    console.groupEnd(action.type);
+  console.log('next state', store.getState());
+  console.groupEnd(action.type);
 
-    return result;
-}
+  return result;
+};
 
 export default function configureStore() {
-    const middleware = applyMiddleware(
+  const middleware = applyMiddleware(
         logger,
     );
 
-    const store = createStore(
+  const store = createStore(
         reducers,
         middleware,
     );
 
-    return store;
+  return store;
 }

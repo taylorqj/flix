@@ -1,50 +1,46 @@
 import React, { PropTypes } from 'react';
-import './App.css';
-
-import Home from './components/Home';
-import Movie from './components/Movie';
-import Movies from './components/Movies';
-import Login from './components/Login';
-import PageNotFound from './components/PageNotFound';
-
-import { connect } from 'react-redux';
 
 import Router from 'react-router/BrowserRouter';
 import Match from 'react-router/Match';
 import Link from 'react-router/Link';
-import Miss from 'react-router/Miss';
+import { connect } from 'react-redux';
+
+import './App.css';
+import Home from './components/Home';
+import Movie from './components/Movie';
+import Movies from './components/Movies';
+import Login from './components/Login';
+
 import MatchWhenAuthorized from './components/MatchWhenAuthorized';
 
-export const App = ({
+const App = ({
   firstName,
   lastName,
   isAuthenticated,
-}) => {
-    return (
-        <Router>
-            <div className="App">
-                <div className="App-header">
-                    <h2>Flix</h2>
+}) => (
+  <Router>
+    <div className="App">
+      <div className="App-header">
+        <h2>Flix</h2>
 
-                    <Link to="/">Home</Link>
-                    <Link to="/movies">Movies</Link>
+        <Link to="/">Home</Link>
+        <Link to="/movies">Movies</Link>
 
-                    {isAuthenticated && (
-                      <p>Hello, { firstName } { lastName }!</p>
-                    )}
-              </div>
+        {isAuthenticated && (
+          <p>Hello, { firstName } { lastName }!</p>
+        )}
+      </div>
 
-              <div className="container">
-                  <Match exactly pattern="/" component={Home} />
-                  <Match pattern="/login" component={Login} />
+      <div className="container">
+        <Match exactly pattern="/" component={Home} />
+        <Match pattern="/login" component={Login} />
 
-                  <MatchWhenAuthorized exactly pattern="/movies" component={Movies} />
-                  <MatchWhenAuthorized pattern="/movies/:movieId" component={Movie} />
-              </div>
-          </div>
-      </Router>
+        <MatchWhenAuthorized exactly pattern="/movies" component={Movies} />
+        <MatchWhenAuthorized pattern="/movies/:movieId" component={Movie} />
+      </div>
+    </div>
+  </Router>
   );
-};
 
 App.propTypes = {
   firstName: PropTypes.string,
@@ -52,14 +48,14 @@ App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
 
-export function mapStateToProps ({
+export function mapStateToProps({
   auth: {
     isAuthenticated,
     user: {
       firstName,
       lastName,
-    }
-  }
+    },
+  },
 }) {
   return {
     firstName,
