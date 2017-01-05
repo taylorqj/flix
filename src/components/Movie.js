@@ -3,8 +3,8 @@ import movies from '../movies.json';
 
 const Movie = ({ params: { movieId } }) => {
   const movie = movies.find(
-        _movie => _movie.id === parseInt(movieId, 10),
-    );
+    _movie => _movie.id === parseInt(movieId, 10),
+  );
 
   return (
     <div>
@@ -40,7 +40,7 @@ const Movie = ({ params: { movieId } }) => {
 
             <p>{ review.body }</p>
           </div>
-                ))}
+        ))}
       </div>
     </div>
   );

@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <div>
       <h2 className="featured-movies__header">
-                Featured Movies
-            </h2>
+        Featured Movies
+      </h2>
 
       <hr />
 

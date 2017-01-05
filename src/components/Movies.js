@@ -5,8 +5,8 @@ import movies from '../movies.json';
 const Movies = () => (
   <div>
     <h2 className="movies-header">
-            Movies
-        </h2>
+      Movies
+    </h2>
 
     <hr />
 
@@ -19,7 +19,7 @@ const Movies = () => (
             </Link>
           </div>
         </div>
-        ))}
+      ))}
     </div>
   </div>
 );

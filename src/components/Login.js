@@ -31,9 +31,9 @@ class Login extends Component {
 
   handleSubmit = (event) => {
     const {
-        authRequest,
-        authRequestSuccess,
-        authRequestFailure,
+      authRequest,
+      authRequestSuccess,
+      authRequestFailure,
     } = this.props;
 
     authRequest();
@@ -54,8 +54,8 @@ class Login extends Component {
 
   render() {
     const {
-            isAuthenticated,
-        } = this.props;
+      isAuthenticated,
+    } = this.props;
 
     if (isAuthenticated) {
       return <Redirect to={{ pathname: '/' }} />;
@@ -112,6 +112,6 @@ export function mapDispatchToProps(dispatch) {
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(Login);
