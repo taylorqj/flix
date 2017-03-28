@@ -1,8 +1,12 @@
 import React, { PropTypes } from 'react';
 
-import Router from 'react-router/BrowserRouter';
-import Match from 'react-router/Match';
-import Link from 'react-router/Link';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
 import { connect } from 'react-redux';
 
 import './App.css';
@@ -10,8 +14,9 @@ import Home from './components/Home';
 import Movie from './components/Movie';
 import Movies from './components/Movies';
 import Login from './components/Login';
+import PageNotFound from './components/PageNotFound';
 
-import MatchWhenAuthorized from './components/MatchWhenAuthorized';
+import RouteWhenAuthorized from './components/RouteWhenAuthorized';
 
 const App = ({
   firstName,
@@ -32,11 +37,15 @@ const App = ({
       </div>
 
       <div className="container">
-        <Match exactly pattern="/" component={Home} />
-        <Match pattern="/login" component={Login} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
 
-        <MatchWhenAuthorized exactly pattern="/movies" component={Movies} />
-        <MatchWhenAuthorized pattern="/movies/:movieId" component={Movie} />
+          <RouteWhenAuthorized exact path="/movies" component={Movies} />
+          <RouteWhenAuthorized exact path="/movies/:movieId" component={Movie} />
+
+          <Route component={PageNotFound} />
+        </Switch>
       </div>
     </div>
   </Router>

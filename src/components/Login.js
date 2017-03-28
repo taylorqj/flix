@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import Redirect from 'react-router/Redirect';
+import { Redirect } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
 class Login extends Component {
