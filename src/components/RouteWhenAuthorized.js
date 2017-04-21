@@ -1,15 +1,14 @@
 import React, { PropTypes } from 'react';
-import Match from 'react-router/Match';
-import Redirect from 'react-router/Redirect';
+import { Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
-const MatchWhenAuthorized = ({
+const RouteWhenAuthorized = ({
   component: Component,
   isAuthenticated,
   ...rest,
 }) => (
-  <Match
+  <Route
     {...rest}
     render={props => (
       isAuthenticated ? (
@@ -18,7 +17,7 @@ const MatchWhenAuthorized = ({
         <Redirect
           to={{
             pathname: '/login',
-            state: { from: props.location },
+            state: { from: props.location.pathname },
           }}
         />
       )
@@ -26,10 +25,10 @@ const MatchWhenAuthorized = ({
   />
 );
 
-MatchWhenAuthorized.propTypes = {
+RouteWhenAuthorized.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  component: PropTypes.element.isRequired,
-  location: PropTypes.string,
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
 };
 
 export const mapStateToProps = ({
@@ -42,4 +41,4 @@ export const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-)(MatchWhenAuthorized);
+)(RouteWhenAuthorized);
